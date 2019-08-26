@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Let's start the Shotgun!"
-date:       2019-08-26 02:54:53 +0000
+date:       2019-08-25 22:54:54 -0400
 permalink:  lets_start_the_shotgun
 ---
 
@@ -12,7 +12,8 @@ My post today is going to talk about an important part of my Sinatra project. Na
 Well!
 First, let's talk about ActiveRecord. Active Record is how we are going to create our model and all of its attributes. So maybe you remember this:
 
-```class Object
+```
+class Object
   attr_accessor :attrib1, attrib2, etc
 	
 	 @@class_variable = []
@@ -39,8 +40,7 @@ Here comes Active Record. I'm going to skip over SQL for this blog entry, except
 ```SELECT row, other_row 
 FROM table
 WHERE filter_item = "attribute" 
-ORDER BY desired_order;
-```
+ORDER BY desired_order;```
 		 
 Not the worst thing, but a bit wordy, and can add quite a bit of lines to our code. To make a long story short, this is where ActiveRecord comes in. Active Record is a suite of utilities that helps *automate* certain processes to save time and make more advanced processes possible. There are a huge amount of methods built in, which allows for flexible, dynamic code to be written. Not only that, but it helps us create, manage, and organize *persistent* objects in memory, so that we don't have to sit there and rebuild this stuff every time you want to test or build your code. We'll use ActiveRecord with some valuable assistance from a tool called Rake. The latter is an extremely valuable automation tool, in that, among other things, allows for the creation and modification of database tables that you can then query and manipulate using Active Record tools. I'll talk more about Rake another time, but let's get back to the subject of this entry.
 
@@ -51,14 +51,11 @@ It gets even better. We might be familiar with `Object.new(args)` and `Object.cr
 ```
 author = Authors.all.last 
 # in this case, grabbing the last 'author' object I created
-book = author.build(params[:attribute])
-```
+book = author.build(params[:attribute])```
 
 The `book` object created will then have an `author_id` attribute added to it. Now I can find a book with:
 
-```
-book = Books.find_by(author_id: params[:author_id])
-```
+```book = Books.find_by(author_id: params[:author_id])```
 
 You may have noticed two things. One, that the argument used to create or find my `book` was a symbol, and two, the word `params`.  Params, short for parameters, not quite magic, but rather a cleverly written getter method that retrieves certain pre-designated attributes. You can call `params` as an argument in itself, which adds a big hash, including attributed you may not actually have a place for. This will throw an error. Instead, you can call them individually, so I can call:
 ```

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "JavaScript's Anxieties: Shifting Gears from Ruby, pt 1"
-date:       2020-03-04 21:38:07 +0000
+date:       2020-03-04 16:38:08 -0500
 permalink:  javascripts_anxieties_shifting_gears_from_ruby_pt_1
 ---
 

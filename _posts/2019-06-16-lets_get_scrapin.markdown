@@ -1,13 +1,13 @@
 ---
 layout: post
 title:      "Let's get scrapin'"
-date:       2019-06-16 18:12:39 +0000
+date:       2019-06-16 14:12:40 -0400
 permalink:  lets_get_scrapin
 ---
 
 
 
-Our cohort’s project to finish of our segment of Object Oriented Ruby lessons is to build a web scraper. 
+Our cohort’s project to finish off our segment of Object Oriented Ruby lessons is to build a web scraper. 
 
 A web scraper digs into the guts and bits of a web page and extracts the tasty morsels inside, and most importantly, to perform the extraction without grabbing a lot of noisy HTML artifacts or unviewable media, like pictures or videos. I work for a marketing intelligence company and scrapers are necessary in order for us to build predictive models of customer activity for our clients. My particular job works WITH data provided to us by numerous scraping and transcription tools (with some pretty darn awesome applications developed in-house, I’ll add), but I don’t use these tools directly, so it was pretty exciting to get under the hood and see how these things operate.
 

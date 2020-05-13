@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "Code Anxiety"
-date:       2020-05-05 04:46:29 +0000
+title:      "Code Anxiety, React Edition"
+date:       2020-05-05 00:46:30 -0400
 permalink:  code_anxiety
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "My first paid coding opportunity"
-date:       2020-09-12 03:05:07 +0000
+date:       2020-09-11 23:05:08 -0400
 permalink:  my_first_paid_coding_opportunity
 ---
 
@@ -12,9 +12,7 @@ This job doesn't really give me much opportunity for coding. There's a little ex
 
 Taking a look at these strings, I noticed that they were effectively strings of JSON objects (note: I've always wondered if that's redundant? I could also say it's a string of objects, but adding "JSON" does immediately tell you what shape the object comes in.) This would be something iterable if you converted the data type from a big string to a series of objects, like an array or a bigger object (footnote: or hash, for the Rubyists, dictionary for the Python-types, etc), and a simple matter of asking for the value to the reoccuring key.
 
-
-![](https://imgur.com/CRWlBlY)
-
+![A screencap of update data string](http://imgur.com/a/4MVmOQF)
 
 We can see the object ID, underlined above, has the same key. We can also see the problem: as of right now, the whole "blob" of update data is fine as a string, but runs into problems when we pass it into our code. Mainly, there are unwrapped characters in every set of curly brackets, preventing the code from being read as a string or as a series of objects if we were to convert it by means of something like `JSON.parse()`. 
 
@@ -24,12 +22,15 @@ Furthermore, I'd like to be able to work with this data with as little manipulat
 
 To start off, I copied the update data to a document editor and wrapped it in backticks. This action turned it to a literal string, so the unwrapped/unescaped characters would cause any issue. Now I can freely use a little regex to eliminate those characters. While I'm at it, why don't I turn all those single quotes into double quotes? This will be important later.
 
+
 `.replace(/'/g, '"')
 `
+
 
 Next, I'll `split()` the string into an array of strings, then loop through it add the curly bracket and comma I chopped off back in. (Is there a better way of doing this? Let me know in the comments!) Now I can iterate through the array and parse each of those strings into a JSON object. If I had left the single quotes in each object, I would not be able to use this function, it's very particular about that, as I discovered!
 
 Finally, I can now iterate the objects for the key-value pair I need, and extract the values I need to make the update far easier. 
+
 
 ```
 const  valueExtractor = (input) => {
@@ -45,6 +46,7 @@ const  valueExtractor = (input) => {
   return values
 }
 console.log(valueExtractor(input))```
+
 
 I cleared out the arrays before the return to ensure that this code would minimize memory bloat. It might not be important or even the correct way of doing it, but I figured it was a precaution that wouldn't do any harm to take. 
 

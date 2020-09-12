@@ -29,7 +29,8 @@ class Object
 		end
 		
 		# and so on...
-		end```
+		end
+	```
 		
 This is how we created our object, and if you're learning to code, your interactions with this object or how this one plays with others like could be the the most you've seen your code *actually* do. Meaning, you write some stuff, you run your tests and see if it's passing or not. Hopefully, you've been taking a look under the hood with utilities like `binding.pry`, consoles, or `puts` commands in your code or terminal, and, if you've made a CLI, then you've been able to view responses to your inputs in your terminal. 
 
@@ -37,10 +38,12 @@ There's an issue here and that is that everything you've created needs to be reb
 
 Here comes Active Record. I'm going to skip over SQL for this blog entry, except to say: there is SQL, which exists to allow a user to create identifiable tables of data, and then be able to request that data back again. Not only that, but to do so in a format that it's easy to read, filter, and arrange. Finally, I need to be able to make updates and delete entries. Now all of this sounds great, but have you ever had to write SQL queries?
 
-```SELECT row, other_row 
+```
+SELECT row, other_row 
 FROM table
 WHERE filter_item = "attribute" 
-ORDER BY desired_order;```
+ORDER BY desired_order;
+```
 		 
 Not the worst thing, but a bit wordy, and can add quite a bit of lines to our code. To make a long story short, this is where ActiveRecord comes in. Active Record is a suite of utilities that helps *automate* certain processes to save time and make more advanced processes possible. There are a huge amount of methods built in, which allows for flexible, dynamic code to be written. Not only that, but it helps us create, manage, and organize *persistent* objects in memory, so that we don't have to sit there and rebuild this stuff every time you want to test or build your code. We'll use ActiveRecord with some valuable assistance from a tool called Rake. The latter is an extremely valuable automation tool, in that, among other things, allows for the creation and modification of database tables that you can then query and manipulate using Active Record tools. I'll talk more about Rake another time, but let's get back to the subject of this entry.
 
@@ -51,13 +54,17 @@ It gets even better. We might be familiar with `Object.new(args)` and `Object.cr
 ```
 author = Authors.all.last 
 # in this case, grabbing the last 'author' object I created
-book = author.build(params[:attribute])```
+book = author.build(params[:attribute])
+```
 
 The `book` object created will then have an `author_id` attribute added to it. Now I can find a book with:
 
-```book = Books.find_by(author_id: params[:author_id])```
+```
+book = Books.find_by(author_id: params[:author_id])
+```
 
 You may have noticed two things. One, that the argument used to create or find my `book` was a symbol, and two, the word `params`.  Params, short for parameters, not quite magic, but rather a cleverly written getter method that retrieves certain pre-designated attributes. You can call `params` as an argument in itself, which adds a big hash, including attributed you may not actually have a place for. This will throw an error. Instead, you can call them individually, so I can call:
+
 ```
 book = author.build(title: params[:title], isbn: params[:isbn])
 ```
@@ -69,6 +76,7 @@ author.books
 ```
 
 The `create_` method also allows this, in that if a book `has_one` or `has_many: characters`, I could create a character in a book entry like so:
+
 ```
 character = book.create_character(attributes: params[:attributes])
 ```

@@ -12,7 +12,7 @@ This job doesn't really give me much opportunity for coding. There's a little ex
 
 Taking a look at these strings, I noticed that they were effectively strings of JSON objects (note: I've always wondered if that's redundant? I could also say it's a string of objects, but adding "JSON" does immediately tell you what shape the object comes in.) This would be something iterable if you converted the data type from a big string to a series of objects, like an array or a bigger object (footnote: or hash, for the Rubyists, dictionary for the Python-types, etc), and a simple matter of asking for the value to the reoccuring key.
 
-![A screencap of update data string](http://imgur.com/a/4MVmOQF)
+![A screencap of update data string](https://i.imgur.com/CRWlBlY.png)
 
 We can see the object ID, underlined above, has the same key. We can also see the problem: as of right now, the whole "blob" of update data is fine as a string, but runs into problems when we pass it into our code. Mainly, there are unwrapped characters in every set of curly brackets, preventing the code from being read as a string or as a series of objects if we were to convert it by means of something like `JSON.parse()`. 
 

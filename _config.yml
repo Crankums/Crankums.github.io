@@ -1,13 +1,13 @@
 # Site settings
 author: Craig Donavin
-title: 
+title: Cranky's Cogs of Coding
 header-img: img/home-bg.png
 email: crdonavin@gmail.com
 copyright_name: Craig Donavin
 description: > # this means to ignore newlines until "baseurl:"
-  
+  The cogs keep spinning away!
 baseurl: "" # the subpath of your site, e.g. /blog
-twitter_username: 
+twitter_username: CrankarmCraig
 github_username:  Crankums
 
 # Build settings

@@ -45,7 +45,8 @@ const  valueExtractor = (input) => {
   arr1=[]
   return values
 }
-console.log(valueExtractor(input))```
+console.log(valueExtractor(input))
+```
 
 
 I cleared out the arrays before the return to ensure that this code would minimize memory bloat. It might not be important or even the correct way of doing it, but I figured it was a precaution that wouldn't do any harm to take. 

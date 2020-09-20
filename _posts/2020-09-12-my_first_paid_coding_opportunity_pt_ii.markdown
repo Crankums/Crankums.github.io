@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "My first paid coding opportunity, pt II"
-date:       2020-09-13 02:04:08 +0000
+date:       2020-09-12 22:04:08 -0400
 permalink:  my_first_paid_coding_opportunity_pt_ii
 ---
 
@@ -76,11 +76,7 @@ let's see how that turns out:
 
 ![Screencap of page showing update IDs as a column](https://i.imgur.com/u18vPdi.png)
 
-Much better. Now lets throw in a little CSS:
-
-![Same as previous screencap, but with update data in bordered cells](https://i.imgur.com/u18vPdi.png)
-
-Now let's take a look at the `handleSubmit()`:
+Much better. Now let's take a look at the `handleSubmit()`:
 
 ```
 handleSubmit(e){
